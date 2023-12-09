@@ -8,6 +8,26 @@ while the .m file is just the codes itself in case if the codes needs to be seen
 # Purpose
 The purpose of this project was as an introduction Matlab class in which I made this as my final project. This project idea existed before hand, but this project gave me an opportunity to learn the skills involved. The final goal is to be able to track a projectile and predict its motion using a webcam. This was just a proof of concept.
 
+# rocket_withwind #
+This marks my initial foray into Simulink. My objective was to construct a model for a dummy rocket capable of orienting itself towards a specified heading or unit vector. In essence, I've implemented a continuous thrust emanating from the rocket's base. The drag is modeled by utilizing the rocket's body frame and then incorporating the relative XYZ components of the wind. Assumptions about the coefficient of drag are made based on the different faces of the rocket.
+Furthermore, I've integrated a straightforward Proportional-Integral-Derivative (PID) controller to dictate the rocket's orientation. This is achieved by introducing a damped moment to the rocket. Concurrently, I calculate the moment induced by drag, ensuring that the rocket naturally orients itself to minimize aerodynamic drag.
+This synergy of moments and drag forces enables the rocket to sustain a general direction even in the absence of thrust to propel it. In practical terms, I can incline the rocket at an approximate 45-degree angle, instruct it to maintain that orientation (as depicted in the image below), and with zero thrust, observe controlled movement to the right and downward—distinct from the scenario where it simply free-falls vertically.
+![image](https://github.com/KalebNails/Matlab_Proportional-Navigation/assets/102830532/254a6619-8bff-4761-b9f5-21bd977a213f)
+
+Below is the tree:
+![image](https://github.com/KalebNails/Matlab_Proportional-Navigation/assets/102830532/00b6fa04-8cf7-4ca6-ad30-b241d7011b7a)
+
+Below, you can observe the error in the rocket's heading gradually approaching zero over time. While this might not be the most refined or visually appealing error graph I possess, it is the one readily available. Additionally, please note that the rocket turns about ~45 degrees to the left, almost achieving a completely horizontal orientation to the right.
+There exists a specific threshold wherein providing too large of a heading deviation results in instability. I have not discovered a direct solution to this issue, and it may be linked to the type of Euler angles employed for coordinate transformations. To address a potential singularity, I implemented a hardcoded if statement, assuming that if the heading ever reaches zero, the rocket must be facing directly upward. This assumption seemed reasonable, as facing straight down would indicate more significant issues.
+Moreover, employing quaternions could potentially circumvent this problem, but further research is warranted. The ultimate objective is to guide the rocket to a specific coordinate. However, my research indicates that proportional navigation becomes not only more intricate in three dimensions but also exacerbates with a variable speed, influenced by burn time and drag.
+![image](https://github.com/KalebNails/Matlab_Proportional-Navigation/assets/102830532/90103ac3-bcf2-4b0f-b6b3-322fac6f53b4)
+
+# cylinderfallbackground.wrl #
+This is a background object/world/stage used for the VR Sink2 simulink block. The world looks like the image below.
+![image](https://github.com/KalebNails/Matlab_Proportional-Navigation/assets/102830532/d184c7e6-8368-44ad-b693-a310f4474521)
+
+# Proportional Navigation 4
+This code makes the images seen below, one is a user controlled projectile and the other is a dummy seeker. This using general proportional navigation to solve.
 ![image](https://github.com/KalebNails/Matlab_Proportional-Navigation/assets/102830532/f6ab11e0-2b32-4a86-ba28-edbb76bb54f8)
 
 ![image](https://github.com/KalebNails/Matlab_Proportional-Navigation/assets/102830532/59ea9a64-cff8-41c4-9405-c2ccd9bcfc2d)
