@@ -26,7 +26,7 @@ Moreover, employing quaternions could potentially circumvent this problem, but f
 This is a background object/world/stage used for the VR Sink2 simulink block. The world looks like the image below.
 ![image](https://github.com/KalebNails/Matlab_Proportional-Navigation/assets/102830532/d184c7e6-8368-44ad-b693-a310f4474521)
 
-# Proportional Navigation 4
+# Predictivepathtest4 #
 This code makes the images seen below, one is a user controlled projectile and the other is a dummy seeker. This using general proportional navigation to solve.
 ![image](https://github.com/KalebNails/Matlab_Proportional-Navigation/assets/102830532/f6ab11e0-2b32-4a86-ba28-edbb76bb54f8)
 
