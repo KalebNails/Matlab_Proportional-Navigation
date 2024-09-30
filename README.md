@@ -34,3 +34,15 @@ This code makes the images seen below, one is a user controlled projectile and t
 
 There is a small bug in the code, I have yet to fix, or have yet had a reason to fix. As time increases mass/momentum of the dot you are controlling also increases. Making tighter turns harder to make. It is workable for shorter demonstartions under about 10 seconds, but beyond that it would need to be fixed.
 
+# Balistic_trajectory.m #
+
+This MATLAB script models the motion of a rocket under constant thrust and simulates its trajectory in 3D space, focusing on both vertical and horizontal movement. It uses symbolic integration to calculate the velocity and height after a specified burn time, followed by generating a 3D parametric plot of the rocket’s flight path. The ascent is limited to 60% of the rocket's maximum height to reflect more energy being directed toward horizontal movement. Mathematically, the acceleration is derived from Newton's Second Law, where the net force (thrust minus weight) is divided by the mass to give constant acceleration. The kinematic equations are then integrated to solve for velocity and position.
+
+The primary purpose of this code is to provide both the rocket's current location and its final impact location. It calculates the approximate vertex of the ballistic trajectory based on thrust, weight, and other factors. Once the vertex is determined, it remains constant throughout the process. The second portion of the code solves a parametric parabola that intersects both the current location and the vertex. This approach offers a simplified method for determining the rocket's heading without complex calculations. By solving the parabolic curve, the rocket's current position can be continuously updated, allowing for corrections to perturbations. This concept is intended for use in the rocket_withwind Simulink model, where the rocket is guided by heading. The discrete derivative of the parabolic curve provides a unit vector along the trajectory, which can be used for real-time heading adjustments. Additionally, if the rocket overshoots the vertex vertically, the solved parametric equation inverts smoothly, maintaining a parabolic guide. The code limits the rocket's maximum height to 60% of what a burn would achieve without drag, while horizontally aiming to reach the 60% marker over the target.
+
+![image](https://github.com/user-attachments/assets/70956082-894b-497a-be5d-ccc64bd810f6)
+![image](https://github.com/user-attachments/assets/2379204f-828c-495a-aba7-f0c494c9d97f)
+![image](https://github.com/user-attachments/assets/272a0e0f-8cff-4365-9e08-4151cbc49c25)
+
+You see the parabola over shooting the target, this is a purposeful over estimation, and once the rocket reaches the vertex, it will switch to a terminal phase algorithm.
+
