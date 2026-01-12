@@ -32,6 +32,8 @@ This code makes the images seen below, one is a user controlled projectile and t
 
 ![image](https://github.com/KalebNails/Matlab_Proportional-Navigation/assets/102830532/59ea9a64-cff8-41c4-9405-c2ccd9bcfc2d)
 
+**Youtube Example:** https://youtu.be/Z8jZzoZDy1g?si=dgEIxbxemEkAwkje
+
 There is a small bug in the code, I have yet to fix, or have yet had a reason to fix. As time increases mass/momentum of the dot you are controlling also increases. Making tighter turns harder to make. It is workable for shorter demonstartions under about 10 seconds, but beyond that it would need to be fixed.
 
 # Balistic_trajectory.m #
